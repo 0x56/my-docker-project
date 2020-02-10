@@ -14,4 +14,7 @@ RUN npm run build
 
 FROM nginx
 
+# Elastic Beanstalk uses this line to map hosting to the port exposed in this dockerfile
+EXPOSE 80
+
 COPY --from=builder /usr/app/build /usr/share/nginx/html

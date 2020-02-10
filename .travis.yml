@@ -10,3 +10,16 @@ before_install:
 
 script:
   - docker run -e CI=true 0x56/my-docker-project npm run test
+# tells travis CI to take our application and host it on AWS
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "us-east-2" #this is based on what region your server is hosted in AWS
+#   app: "docker-react"
+#   env: "Docker-env"
+#   bucket_name: "elasticbeanstalk-us-east-2-306565533256" #This bucket is a virtual hardrive hosted on AWS
+#   bucket_path: "docker-react" #also found in AWS
+#   on:
+#    branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: "$AWS_SECRET_KEY"
