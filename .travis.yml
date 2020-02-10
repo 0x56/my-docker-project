@@ -1,0 +1,12 @@
+sudo: required # tells travis that sudo level permissions are required
+
+language: generic
+
+services:
+  - docker # tells travis that docker needs to be installed
+
+before_install:
+  - docker build -t 0x56/my-docker-project -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true 0x56/my-docker-project npm run test
